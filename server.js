@@ -14,11 +14,6 @@ require("dotenv").config();
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-app.set("view engine", "ejs");
-app.use(express.static("public"));
-app.use(cookieParser());
-
 app.use(
   session({
     secret: "keyboard cat",
@@ -27,6 +22,9 @@ app.use(
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
   })
 );
+app.set("view engine", "ejs");
+app.use(express.static("public"));
+app.use(cookieParser());
 
 app.use(passport.initialize());
 app.use(passport.session());
