@@ -13,8 +13,8 @@
             <h2>Sign in</h2>
             <%- include("./partials/messages.ejs") -%>
               <form action="/user/login" method="POST">
-                <input type="email" name="email" placeholder="Email">
-                <input type="password" name="password" placeholder="Password">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required min="5">
                 <button type="submit"> <span>login</span>
                   <div class="btn-clip"><span>it's free</span></div>
                 </button>

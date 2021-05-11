@@ -15,6 +15,7 @@ router.get("/login", (req, res) => {
 
 router.post("/login", async (req, res, next) => {
   const { email, password } = req.body;
+
   passport.authenticate("local", (err, user, info) => {
     if (err) {
       return next(err);
@@ -60,6 +61,7 @@ router.post(
   async (req, res) => {
     const { name, email, password, password2 } = req.body;
     const errors = validationResult(req);
+    let profileUrl = `https://ui-avatars.com/api/?name=${name}`;
 
     let errorArray = [];
 
@@ -72,7 +74,7 @@ router.post(
       errorArray.push({ msg: msg });
     }
     if (errorArray.length > 0) {
-      res.render("register", { errorArray: errorArray, name, email });
+      return res.render("register", { errorArray: errorArray, name, email });
     }
 
     let date = new Date().toDateString();
@@ -82,15 +84,17 @@ router.post(
           name: name.replace(/\s/g, ""),
           email: email,
           date: date,
+          profileUrl: profileUrl,
           password: hash,
         });
         await user.save();
       });
+      return res.redirect("/user/login");
     } catch (error) {
       if (error) {
         errorArray.push({ msg: "username already exists" });
         if (errorArray.length > 0) {
-          res.render("register", { errorArray: errorArray });
+          return res.render("register", { errorArray: errorArray });
         }
       }
     }
