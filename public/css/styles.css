@@ -1,0 +1,1482 @@
+/** @format */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap");
+/** @format */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap");
+#music {
+  width: 100%;
+  height: 100vh;
+  background: url("https://images.unsplash.com/photo-1557264337-e8a93017fe92?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80") no-repeat center;
+  background-size: cover;
+  position: relative;
+  overflow-y: hidden;
+  -webkit-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+}
+
+.music-container {
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(40%, rgba(0, 0, 0, 0.815)), to(rgba(83, 3, 129, 0.664)));
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.815) 40%, rgba(83, 3, 129, 0.664));
+  background-color: rgba(0, 0, 0, 0.205);
+}
+
+.music-contents {
+  padding: 0 3%;
+  height: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.music-main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 75%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 0rem;
+}
+
+.music-main .music-img {
+  width: 300px;
+  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: white;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  position: relative;
+  -webkit-transition: all 0.8s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: all 0.8s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.music-main .music-img .img-flop {
+  width: 100%;
+  height: 70%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 5px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#2b1d53), to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(#2b1d53, rgba(255, 255, 255, 0));
+  -webkit-transform: rotateY(0deg) translateZ(-100px) translateY(100px);
+          transform: rotateY(0deg) translateZ(-100px) translateY(100px);
+}
+
+.music-main .music-img .img-flop h2 {
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  position: absolute;
+  bottom: 0.5rem;
+  letter-spacing: 1px;
+  left: 50%;
+  color: #e6e6e6;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.music-main .music-img img {
+  border: 3px solid rgba(255, 255, 255, 0.452);
+  border-radius: 1%;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.144);
+          box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.144);
+  -webkit-transition: all 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  margin: 0 auto;
+  -webkit-transform: translateZ(100px);
+          transform: translateZ(100px);
+}
+
+.music-main .music-img img:hover {
+  -webkit-transform: translateY(-60px);
+          transform: translateY(-60px);
+}
+
+.music-main .music-img .animate {
+  -webkit-animation: identifier 8s infinite linear;
+          animation: identifier 8s infinite linear;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+@-webkit-keyframes identifier {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes identifier {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+.music-main .music-controls-icon {
+  width: 8rem;
+  margin: 2rem auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.music-main .music-controls-icon .fas {
+  color: rgba(255, 255, 255, 0.733);
+  cursor: pointer;
+  width: 20px;
+  opacity: 0.6;
+  padding: 0.45rem;
+  margin: 0 0.6rem;
+}
+
+.music-main .music-controls-icon .fas:hover {
+  opacity: 1;
+  background-color: #414040;
+  color: #6d6d6d;
+}
+
+.music-main .music-duration {
+  width: 20rem;
+  height: 0.3rem;
+  position: relative;
+  background-color: #43114d;
+}
+
+.music-main .music-duration .music-float-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  width: 0rem;
+  height: 100%;
+}
+
+.music-img-left {
+  width: 12rem;
+  position: absolute;
+  left: 3%;
+  top: 35%;
+  background-color: white;
+  height: 33rem;
+  -webkit-transform: translateY(-30%);
+          transform: translateY(-30%);
+}
+
+.music-img-left img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.music-playlist {
+  overflow-y: auto;
+  height: 25rem;
+}
+
+.music-playlist .music-flex-list {
+  width: 100%;
+  height: 100%;
+}
+
+.music-playlist .music-flex-list .music-list {
+  margin: 0.6rem;
+  width: 15rem;
+  height: 3rem;
+  background-color: #383737;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.music-playlist .music-flex-list .music-list .music-img {
+  margin-left: 0.5rem;
+  width: 25px;
+  height: 25px;
+}
+
+.music-playlist .music-flex-list .music-list .music-img img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.music-playlist .music-flex-list .music-list .music-player {
+  width: 30px;
+  margin-left: 0.8rem;
+}
+
+.music-playlist .music-flex-list .music-list .music-player .fas {
+  color: rgba(255, 255, 255, 0.411);
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.music-playlist .music-flex-list .music-list .music-name p {
+  word-wrap: break-word;
+  color: rgba(255, 255, 255, 0.699);
+  font-family: "Raleway", sans-serif;
+  font-size: 0.8rem;
+}
+
+.music-playlist .music-flex-list .music-list:hover {
+  background-color: #660566;
+}
+
+.music-playlist .music-flex-list h2 {
+  font-family: "Raleway", sans-serif;
+  color: rgba(255, 255, 255, 0.514);
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  margin-left: 0.8rem;
+  font-weight: 500;
+  margin-top: 0;
+}
+
+.music-playlist::-webkit-scrollbar {
+  width: 0.3rem;
+}
+
+.music-playlist::-webkit-scrollbar-track {
+  background-color: #383838;
+}
+
+.music-playlist::-webkit-scrollbar-thumb {
+  background-color: #bebebe;
+}
+
+.music-footer-contents {
+  width: 100%;
+  height: 85%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.music-footer-contents .music-footer-1,
+.music-footer-contents .music-footer-2,
+.music-footer-contents .music-footer-3,
+.music-footer-contents .music-footer-4 {
+  margin: 0 0.6rem;
+  width: 25%;
+  height: 100%;
+}
+
+.music-footer-contents .music-footer-1,
+.music-footer-contents .music-footer-2,
+.music-footer-contents .music-footer-3,
+.music-footer-contents .music-footer-4 {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+}
+
+.music-footer-contents .music-footer-1 .flip,
+.music-footer-contents .music-footer-1 .flop,
+.music-footer-contents .music-footer-2 .flip,
+.music-footer-contents .music-footer-2 .flop,
+.music-footer-contents .music-footer-3 .flip,
+.music-footer-contents .music-footer-3 .flop,
+.music-footer-contents .music-footer-4 .flip,
+.music-footer-contents .music-footer-4 .flop {
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+  position: relative;
+}
+
+.music-footer-contents .music-footer-1 .flip::before,
+.music-footer-contents .music-footer-1 .flop::before,
+.music-footer-contents .music-footer-2 .flip::before,
+.music-footer-contents .music-footer-2 .flop::before,
+.music-footer-contents .music-footer-3 .flip::before,
+.music-footer-contents .music-footer-3 .flop::before,
+.music-footer-contents .music-footer-4 .flip::before,
+.music-footer-contents .music-footer-4 .flop::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left bottom, left top, from(black), to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(0deg, black, rgba(255, 255, 255, 0));
+}
+
+.music-footer-contents .music-footer-1 .flip img,
+.music-footer-contents .music-footer-1 .flop img,
+.music-footer-contents .music-footer-2 .flip img,
+.music-footer-contents .music-footer-2 .flop img,
+.music-footer-contents .music-footer-3 .flip img,
+.music-footer-contents .music-footer-3 .flop img,
+.music-footer-contents .music-footer-4 .flip img,
+.music-footer-contents .music-footer-4 .flop img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.music-footer-contents .music-footer-1 .flip,
+.music-footer-contents .music-footer-2 .flip,
+.music-footer-contents .music-footer-3 .flip,
+.music-footer-contents .music-footer-4 .flip {
+  -webkit-transform: translateZ(100px);
+          transform: translateZ(100px);
+}
+
+.music-footer-contents .music-footer-1 .flip h2,
+.music-footer-contents .music-footer-2 .flip h2,
+.music-footer-contents .music-footer-3 .flip h2,
+.music-footer-contents .music-footer-4 .flip h2 {
+  margin: 0;
+  position: absolute;
+  top: 0.8rem;
+  left: 0.5rem;
+  color: rgba(255, 255, 255, 0.788);
+  font-size: 1.1rem;
+  font-family: "Raleway", sans-serif;
+  background: transparent;
+}
+
+.music-footer-contents .music-footer-1 .flop,
+.music-footer-contents .music-footer-2 .flop,
+.music-footer-contents .music-footer-3 .flop,
+.music-footer-contents .music-footer-4 .flop {
+  -webkit-transform: rotateX(-90deg) translateZ(-100px);
+          transform: rotateX(-90deg) translateZ(-100px);
+  background: transparent;
+}
+
+.music-footer-contents .music-footer-1 .flop h2,
+.music-footer-contents .music-footer-2 .flop h2,
+.music-footer-contents .music-footer-3 .flop h2,
+.music-footer-contents .music-footer-4 .flop h2 {
+  margin: 0;
+  position: absolute;
+  top: 1.1rem;
+  left: 1rem;
+  color: rgba(255, 255, 255, 0.788);
+  font-size: 1.1rem;
+  font-family: "Raleway", sans-serif;
+  background: transparent;
+}
+
+.music-footer-contents .music-footer-1 .flop .footer-player,
+.music-footer-contents .music-footer-2 .flop .footer-player,
+.music-footer-contents .music-footer-3 .flop .footer-player,
+.music-footer-contents .music-footer-4 .flop .footer-player {
+  position: absolute;
+  z-index: 30;
+  top: 40%;
+  left: 1rem;
+  color: #cecece;
+  cursor: pointer;
+}
+
+.music-footer-contents .music-footer-1 .flop .footer-player .footer-icon,
+.music-footer-contents .music-footer-2 .flop .footer-player .footer-icon,
+.music-footer-contents .music-footer-3 .flop .footer-player .footer-icon,
+.music-footer-contents .music-footer-4 .flop .footer-player .footer-icon {
+  font-size: 0.9rem;
+}
+
+.music-footer-contents .music-footer-1:hover,
+.music-footer-contents .music-footer-2:hover,
+.music-footer-contents .music-footer-3:hover,
+.music-footer-contents .music-footer-4:hover {
+  -webkit-transform: rotateX(90deg);
+          transform: rotateX(90deg);
+}
+
+/** @format */
+#profile {
+  width: 100%;
+  height: 100vh;
+  background: #000000;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left top, left bottom, from(#222222), to(#000000));
+  background: linear-gradient(to bottom, #222222, #000000);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.profile-container {
+  padding: 0 5%;
+  height: 100%;
+}
+
+.profile-contents {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.profile-img {
+  width: 15rem;
+  height: 30rem;
+  margin-right: 4rem;
+  position: relative;
+}
+
+.profile-img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.profile-img .upload-profile {
+  position: absolute;
+  top: 0rem;
+  right: 0rem;
+  background-color: #000000;
+  margin-right: 0;
+  width: 100%;
+  min-height: 8.5rem;
+  -webkit-clip-path: circle(15% at 95% 8%);
+          clip-path: circle(15% at 95% 8%);
+  -webkit-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+  padding-bottom: 0.8rem;
+}
+
+.profile-img .upload-profile .profile-icon {
+  display: block;
+  position: absolute;
+  top: 0.1rem;
+  right: 0.1rem;
+  color: white;
+  stroke: white;
+  font-size: 1.5rem;
+  margin: 0;
+  cursor: pointer;
+  -webkit-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+}
+
+.profile-img .upload-profile .upload-text {
+  margin-top: 1.5rem;
+  text-align: center;
+  color: white;
+}
+
+.profile-img .upload-profile .upload-text h4 {
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.856);
+}
+
+.profile-img .upload-profile label {
+  display: block;
+  text-align: center;
+  font-size: 1.2rem;
+  color: white;
+  font-family: "Raleway", sans-serif;
+  cursor: pointer;
+  margin: 1rem auto 0;
+}
+
+.profile-img .upload-profile .image-name {
+  display: block;
+  font-family: "Raleway", sans-serif;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.699);
+}
+
+.profile-img .upload-profile input {
+  width: 0;
+  height: 0;
+  border: 0;
+  outline: 0;
+}
+
+.profile-img .upload-profile button {
+  margin-top: 0.5rem;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  padding: 0.5rem;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.829);
+  border: 0;
+  outline: 0;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+}
+
+.profile-img .upload-profile button:hover {
+  background-color: purple;
+  color: white;
+}
+
+.profile-img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  left: 0;
+  height: 100%;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.425)), to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.425), rgba(255, 255, 255, 0));
+}
+
+.profile-img progress {
+  background-color: black;
+  height: 5px;
+  color: white;
+  opacity: 0;
+  -webkit-transition: opacity 0.6s ease-in-out;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.profile-details form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 25rem;
+  font-family: "Raleway", sans-serif;
+}
+
+.profile-details form input {
+  font-size: 0.9rem;
+  letter-spacing: 0.7px;
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border: 2px solid rgba(125, 1, 163, 0.664);
+  outline: 0;
+  margin: 0.6rem 0.4rem;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.884);
+  position: relative;
+}
+
+.profile-details form input::-webkit-input-placeholder {
+  font-family: "Raleway", sans-serif;
+  color: rgba(255, 255, 255, 0.815);
+}
+
+.profile-details form input:-ms-input-placeholder {
+  font-family: "Raleway", sans-serif;
+  color: rgba(255, 255, 255, 0.815);
+}
+
+.profile-details form input::-ms-input-placeholder {
+  font-family: "Raleway", sans-serif;
+  color: rgba(255, 255, 255, 0.815);
+}
+
+.profile-details form input::placeholder {
+  font-family: "Raleway", sans-serif;
+  color: rgba(255, 255, 255, 0.815);
+}
+
+.profile-details form input:hover {
+  border: 2px solid rgba(176, 1, 230, 0.74);
+}
+
+.profile-details form button {
+  font-family: "Raleway", sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.7px;
+  padding: 0.6rem 1rem;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  border: 2px solid rgba(153, 1, 199, 0.452);
+  color: rgba(255, 255, 255, 0.842);
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-top: 0.6rem;
+  position: relative;
+  right: 1rem;
+  cursor: pointer;
+}
+
+.profile-fav {
+  width: 20rem;
+  height: 25rem;
+  margin-left: 4rem;
+}
+
+.profile-fav h2 {
+  font-family: "Raleway", sans-serif;
+  letter-spacing: 0.8px;
+  font-weight: 500;
+  font-size: 1rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.877);
+}
+
+.profile-fav .profile-fav-container {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  padding: 0.6rem 0.2rem;
+}
+
+.profile-fav .profile-fav-container .profile-fav-content {
+  width: 90%;
+  height: 2.5rem;
+  margin: 0.7rem auto;
+  background-color: #242424;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.profile-fav .profile-fav-container .profile-fav-content .profile-fav-img {
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  margin: 0 1rem;
+}
+
+.profile-fav .profile-fav-container .profile-fav-content .profile-fav-img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile-fav .profile-fav-container .profile-fav-content .profile-fav-name p {
+  font-family: "Raleway", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.87);
+  text-transform: capitalize;
+  letter-spacing: 0.8px;
+}
+
+.profile-fav .profile-fav-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.profile-fav .profile-fav-container::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: purple;
+}
+
+/** @format */
+#login-page {
+  width: 100%;
+  height: 100vh;
+  background: black;
+}
+
+.login-container {
+  width: 100%;
+  height: 100%;
+}
+
+.alert {
+  padding: 4px;
+  background-color: #b41623;
+  color: white;
+}
+
+.alert p {
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  font-size: 0.9rem;
+  padding: 0.4rem;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
+.login-contents {
+  width: 100%;
+  height: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login-form {
+  width: 25rem;
+}
+
+.login-form h2 {
+  font-family: "Raleway", sans-serif;
+  letter-spacing: 1px;
+  font-weight: 600;
+  font-size: 1.8rem;
+  color: white;
+  text-align: center;
+}
+
+.login-form form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.login-form form input {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+  padding: 0.8rem 1rem;
+  margin: 0.5rem 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(156, 6, 156, 0.603);
+}
+
+.login-form form input:focus {
+  border: 2px solid #b107b1;
+}
+
+.login-form form input::-webkit-input-placeholder {
+  color: white;
+  opacity: 0.9;
+}
+
+.login-form form input:-ms-input-placeholder {
+  color: white;
+  opacity: 0.9;
+}
+
+.login-form form input::-ms-input-placeholder {
+  color: white;
+  opacity: 0.9;
+}
+
+.login-form form input::placeholder {
+  color: white;
+  opacity: 0.9;
+}
+
+.login-form form input::-webkit-input-placeholder:hover {
+  opacity: 1;
+}
+
+.login-form form input:-ms-input-placeholder:hover {
+  opacity: 1;
+}
+
+.login-form form input::-ms-input-placeholder:hover {
+  opacity: 1;
+}
+
+.login-form form input::placeholder:hover {
+  opacity: 1;
+}
+
+.login-form form button {
+  margin-top: 1.2rem;
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 1px;
+  font-weight: 600;
+  padding: 0.8rem 1rem;
+  border: 2px solid rgba(156, 6, 156, 0.603);
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  position: relative;
+}
+
+.login-form form button .btn-clip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #910491;
+  -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+          clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+  -webkit-transition: all 0.6s ease-in-out;
+  transition: all 0.6s ease-in-out;
+}
+
+.login-form form button .btn-clip span {
+  display: block;
+  margin-top: 0.8rem;
+}
+
+.login-form form button:hover {
+  border: 2px solid #b107b1;
+}
+
+.login-form form button:hover .btn-clip {
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.register {
+  color: white;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+}
+
+.register p {
+  font-size: 0.9rem;
+  margin-bottom: 0;
+}
+
+.register p a {
+  text-decoration: none;
+  color: #f87df8;
+}
+
+.login-social {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 0rem;
+}
+
+.login-social .fab {
+  width: 30px;
+  height: 30px;
+  padding: 1rem 0.5rem;
+  margin: 0.8rem;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.8;
+}
+
+.login-social .fab:hover {
+  opacity: 1;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#first-page {
+  width: 100%;
+  height: 100vh;
+  background-color: #1d1d1d;
+  -webkit-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+  position: relative;
+  overflow-y: hidden;
+}
+
+#first-page::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.932)), to(rgba(0, 0, 0, 0.192)));
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.932), rgba(0, 0, 0, 0.192));
+  width: 100%;
+  height: 100%;
+  content: "";
+}
+
+.first-container {
+  width: 100%;
+  height: 100%;
+}
+
+.first-contents {
+  padding: 0 3%;
+  grid-gap: 1rem;
+}
+
+.audio-waveform {
+  width: 60%;
+  height: 5rem;
+  margin: 0 auto;
+  position: absolute;
+  left: 27.5%;
+  top: 5.5%;
+  border: 2px solid purple;
+  -webkit-transform: translate(-17.5%, -6%);
+          transform: translate(-17.5%, -6%);
+}
+
+.audio-waveform #waveform {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  bottom: 0rem;
+}
+
+.first-header,
+.music-header {
+  padding: 0 3%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+  z-index: 100;
+}
+
+.first-header h3,
+.music-header h3 {
+  font-family: "Raleway", sans-serif;
+  color: white;
+  font-size: 1.4rem;
+  letter-spacing: 0.7px;
+  font-weight: 600;
+}
+
+.first-header button,
+.music-header button {
+  font-family: "Raleway", sans-serif;
+  letter-spacing: 0.7px;
+  padding: 0.5rem 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.664);
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.first-header button a,
+.music-header button a {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+
+.first-left-contents {
+  width: 9.5rem;
+  margin-top: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.first-left-contents .first-profile {
+  width: 100%;
+  height: 4rem;
+  position: relative;
+}
+
+.first-left-contents .first-profile img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.first-left-contents .first-profile .first-profile-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -webkit-transition: 0.6s ease-in-out;
+  transition: 0.6s ease-in-out;
+}
+
+.first-left-contents .first-profile .first-profile-text p {
+  margin-top: 1.4rem;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+  font-weight: 500;
+  letter-spacing: 0.7px;
+}
+
+.first-left-contents .first-profile .first-profile-text p a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.849);
+}
+
+.first-left-contents .first-profile::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #212020a2;
+  -webkit-transition: 0.6s ease-in-out;
+  transition: 0.6s ease-in-out;
+  opacity: 0;
+}
+
+.first-left-contents .first-profile:hover::before {
+  opacity: 0.8;
+  -webkit-transition: 0.6s ease-in-out;
+  transition: 0.6s ease-in-out;
+}
+
+.first-left-contents .first-profile:hover .first-profile-text {
+  opacity: 1;
+}
+
+.first-left-contents .first-left-img {
+  margin-top: 1rem;
+  width: 100%;
+  height: 30rem;
+  background: url("https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260") no-repeat center;
+  background-size: cover;
+  -webkit-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+  position: relative;
+}
+
+.first-left-contents .first-left-img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.74)), to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.74), rgba(255, 255, 255, 0));
+  -webkit-transition: 0.6s cubic-bezier(0.39, 0.575, 0.565, 1);
+  transition: 0.6s cubic-bezier(0.39, 0.575, 0.565, 1);
+  opacity: 0.8;
+}
+
+.first-left-contents .first-left-img:hover::before {
+  opacity: 1;
+  -webkit-transition: 0.6s cubic-bezier(0.39, 0.575, 0.565, 1);
+  transition: 0.6s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 10rem;
+  background-color: #141414;
+  -webkit-animation: opacity 2s ease-in-out;
+          animation: opacity 2s ease-in-out;
+}
+
+footer .playlist {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+footer .playlist .footer-img {
+  width: 100%;
+  height: 100%;
+}
+
+footer .playlist .footer-img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+footer .playlist .footer-img::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: -webkit-gradient(linear, left bottom, left top, from(black), to(rgba(0, 0, 0, 0)));
+  background: linear-gradient(0deg, black, rgba(0, 0, 0, 0));
+  width: 100%;
+  height: 100%;
+  content: "";
+}
+
+footer .playlist .footer-img .footer-text {
+  position: absolute;
+  top: 12%;
+  left: 10%;
+  -webkit-transform: translate(-20%, -20%);
+          transform: translate(-20%, -20%);
+  color: white;
+  z-index: 250;
+  font-family: "Raleway", sans-serif;
+}
+
+footer .playlist .footer-img .footer-text h3 {
+  font-size: 1.4rem;
+  letter-spacing: 0.7px;
+  font-weight: 700;
+  text-transform: lowercase;
+}
+
+@-webkit-keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.first-center {
+  position: absolute;
+  top: 8%;
+  left: 12%;
+  width: 70%;
+  height: 37rem;
+  margin: 4rem 2rem;
+  padding-bottom: 2rem;
+  background-color: #232324;
+}
+
+.first-center .center-contents {
+  width: 100%;
+  height: 100%;
+}
+
+.first-center .center-contents .center-nav ul {
+  padding: 0 1.2rem;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-family: "Raleway", sans-serif;
+}
+
+.first-center .center-contents .center-nav ul li {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  list-style: none;
+  color: rgba(182, 182, 182, 0.788);
+  cursor: pointer;
+}
+
+.first-center .center-contents .center-nav ul li:hover {
+  color: #cccccc;
+}
+
+.first-center .center-contents .center {
+  width: 100%;
+  height: 32rem;
+  overflow-y: auto;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+}
+
+.first-center .center-contents .center .songs-div {
+  display: block;
+  width: 80%;
+  height: 3rem;
+  margin: 0.7rem auto;
+  background-color: rgba(43, 43, 43, 0.877);
+  position: relative;
+  opacity: 0.75;
+  -webkit-box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.11);
+          box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.11);
+  border: 2px solid rgba(255, 255, 255, 0.048);
+}
+
+.first-center .center-contents .center .songs-div .songs-contents {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.first-center .center-contents .center .songs-div .songs-contents .song-img {
+  margin-left: 1rem;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.first-center .center-contents .center .songs-div .songs-contents .song-img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.first-center .center-contents .center .songs-div .songs-contents .song-player {
+  width: 30px;
+  margin-left: 2rem;
+}
+
+.first-center .center-contents .center .songs-div .songs-contents .song-player .fas {
+  color: rgba(255, 255, 255, 0.596);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.first-center .center-contents .center .songs-div .songs-contents .song-name {
+  font-family: "Raleway", sans-serif;
+  margin-left: 1rem;
+}
+
+.first-center .center-contents .center .songs-div .songs-contents .song-name p {
+  cursor: pointer;
+  font-size: 0.8rem;
+  letter-spacing: 0.8px;
+  color: rgba(255, 255, 255, 0.808);
+}
+
+.first-center .center-contents .center .songs-div .songs-contents .song-float-bar {
+  width: 15rem;
+  height: 0.3rem;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.first-center .center-contents .center .songs-div .songs-contents .song-float-bar span {
+  font-family: "Raleway", sans-serif;
+  margin: 0 1rem;
+  color: white;
+  font-size: 0.8rem;
+}
+
+.first-center .center-contents .center .songs-div .songs-contents .song-float-bar .song-float {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  position: relative;
+}
+
+.first-center .center-contents .center .songs-div .songs-contents .song-float-bar .song-float .song-float-duration {
+  position: absolute;
+  left: 0;
+  width: 0.1%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.596);
+}
+
+.first-center .center-contents .center .songs-div .songs-contents .song-fav {
+  position: absolute;
+  right: 20%;
+  -webkit-transform: translateX(-20%);
+          transform: translateX(-20%);
+}
+
+.first-center .center-contents .center .songs-div .songs-contents .song-fav .fav-icon {
+  color: rgba(255, 255, 255, 0.308);
+  cursor: pointer;
+}
+
+.first-center .center-contents .center .songs-div .songs-contents .song-fav .fav-icon:hover {
+  color: #802b2b;
+}
+
+.first-center .center-contents .center .songs-div .songs-contents .song-fav .fav-icon-2 {
+  color: rgba(255, 255, 255, 0.308);
+  cursor: pointer;
+}
+
+.first-center .center-contents .center .songs-div .songs-contents .song-fav .fav-icon-2:hover {
+  color: #c9c9c9;
+}
+
+.first-center .center-contents .center .songs-div .songs-contents .audio-controls {
+  width: 50px;
+  height: 100%;
+  position: absolute;
+  right: 8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.first-center .center-contents .center .songs-div .songs-contents .audio-controls .fas {
+  color: rgba(255, 255, 255, 0.603);
+  margin-right: 0.75rem;
+}
+
+.first-center .center-contents .center .songs-div .songs-contents .audio-controls input[type="range"] {
+  -webkit-appearance: none;
+  width: 10rem;
+  height: 0.5rem;
+  background: -webkit-gradient(linear, left top, right top, color-stop(50%, rgba(34, 34, 34, 0.829)), color-stop(50%, rgba(250, 250, 250, 0.11)));
+  background: linear-gradient(90deg, rgba(34, 34, 34, 0.829) 50%, rgba(250, 250, 250, 0.11) 50%);
+  outline: 0;
+  border: 0;
+  border-radius: 50px;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.first-center .center-contents .center .songs-div .songs-contents .audio-controls input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  color: white;
+  background-color: #fdfdfd;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.first-center .center-contents .center .songs-div .songs-contents .audio-controls input[type="range"]::-webkit-slider-thumb:hover {
+  opacity: 1;
+}
+
+.first-center .center-contents .center .songs-div:hover {
+  background-color: rgba(126, 8, 126, 0.822);
+  opacity: 1;
+}
+
+.first-center .center-contents .center::-webkit-scrollbar {
+  width: 0.3rem;
+}
+
+.first-center .center-contents .center::-webkit-scrollbar-track {
+  background-color: #383838;
+}
+
+.first-center .center-contents .center::-webkit-scrollbar-thumb {
+  background-color: #bebebe;
+}
+
+.first-right-contents {
+  position: absolute;
+  right: 3%;
+  top: 10%;
+  margin-top: 5rem;
+  width: 12rem;
+  height: 37rem;
+  background: url("https://images.pexels.com/photos/1540406/pexels-photo-1540406.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260") no-repeat center;
+  background-size: cover;
+}
+/*# sourceMappingURL=styles.css.map */

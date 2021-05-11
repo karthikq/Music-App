@@ -1,0 +1,255 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/header.ejs") -%>
+
+  <body>
+    <section id="music">
+      <div class="music-container">
+        <header class="music-header">
+          <h3>MusicApp</h3>
+          <button><a href="/?user=<%=userD._id%>&auth<%=true%>">Back</a></button>
+        </header>
+
+        <div class="music-contents">
+          <div class="music-main">
+            <div class="music-img">
+              <img src="<%=musicData.imageUrl%>" alt="" />
+              <div class="img-flop">
+                <h2>
+                  <%=musicData.name%>
+                </h2>
+              </div>
+            </div>
+            <div class="music-controls">
+              <div class="music-controls-icon">
+                <img src="../images/play.svg" onclick="handlePlay()" alt="err" class="fas" />
+                <img src="../images/pause.svg" alt="error" class="fas" onclick="handlePause()" />
+                <img src="../images/reset.svg" alt="error" class="fas" onclick="handleReset()" />
+              </div>
+              <div class="music-audio">
+                <audio id="music-selected">
+                  <source src="<%=musicData.audio%>" />
+                </audio>
+              </div>
+              <div class="music-duration">
+                <div class="music-float-bar"></div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="music-img-left">
+            <img
+              src="https://images.pexels.com/photos/2147029/pexels-photo-2147029.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+              alt=""
+            />
+          </div> -->
+          <!-- <div class="music-playlist">
+            <div class="music-flex-list">
+              <h2>Playlist</h2>
+              <% allMusicData.map((allData)=>{ %>
+              <div class="music-list">
+                <div class="music-img">
+                  <img src="<%=allData.imageUrl%>" alt="" />
+                </div>
+                <div class="music-player"><i class="fas fa-play"></i></div>
+                <div class="music-name">
+                  <p><%=allData.name.substring(0,20)%></p>
+                </div>
+              </div>
+              <% }) %>
+            </div>
+          </div> -->
+        </div>
+        <footer>
+          <div class="music-footer-contents">
+            <div class="music-footer-1">
+              <div class="flip">
+                <img
+                  src="https://images.unsplash.com/photo-1612042912938-178455303812?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                  alt="" />
+                <h2>Listen to latest</h2>
+              </div>
+              <div class="flop">
+                <img
+                  src="https://images.pexels.com/photos/1105389/pexels-photo-1105389.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                  alt="err" />
+                <h2>serenevie</h2>
+                <div class="footer-player">
+                  <audio id="audio-footer">
+                    <source src="https://assets.mixkit.co/music/preview/mixkit-serene-view-443.mp3" />
+                  </audio>
+                  <i class="fas fa-play footer-icon" data-music-name="sereneview"></i>
+                </div>
+              </div>
+            </div>
+            <div class="music-footer-2">
+              <div class="flip">
+                <img
+                  src="https://images.unsplash.com/photo-1615818499660-30bb5816e1c7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80"
+                  alt="" />
+                <h2>Top playlists</h2>
+              </div>
+              <div class="flop">
+                <img
+                  src="https://images.pexels.com/photos/4456224/pexels-photo-4456224.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                  alt="err" />
+                <h2>Dreamingunderthestars</h2>
+                <div class="footer-player">
+                  <audio id="audio-footer">
+                    <source src="https://www.chosic.com/wp-content/uploads/2021/04/Dreaming-Under-The-Stars-MP3.mp3" />
+                  </audio>
+                  <i class="fas fa-play footer-icon" data-music-name="Dreamingunderthestars"></i>
+                </div>
+              </div>
+            </div>
+            <div class="music-footer-3">
+              <div class="flip">
+                <img
+                  src="https://images.pexels.com/photos/1482476/pexels-photo-1482476.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                  alt="" />
+                <h2>Hip-hop Tracks</h2>
+              </div>
+              <div class="flop">
+                <img
+                  src="https://images.pexels.com/photos/262034/pexels-photo-262034.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                  alt="err" />
+                <h2>jayjenrayofhope</h2>
+                <div class="footer-player">
+                  <audio id="audio-footer">
+                    <source src="https://www.chosic.com/wp-content/uploads/2021/01/jayjen-ray-of-hope.mp3" />
+                  </audio>
+                  <i class="fas fa-play footer-icon" data-music-name="jayjenrayofhope"></i>
+                </div>
+              </div>
+            </div>
+            <div class="music-footer-4">
+              <div class="flip">
+                <img
+                  src="https://images.unsplash.com/photo-1513829596324-4bb2800c5efb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80"
+                  alt="" />
+                <h2>Hit Tracks</h2>
+              </div>
+              <div class="flop">
+                <img
+                  src="https://images.pexels.com/photos/6204537/pexels-photo-6204537.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                  alt="err" />
+                <h2>alexandernakaradachase</h2>
+                <div class="footer-player">
+                  <audio id="audio-footer">
+                    <source src="https://www.chosic.com/wp-content/uploads/2020/08/alexander-nakarada-chase.mp3" />
+                  </audio>
+                  <i class="fas fa-play footer-icon" data-music-name="alexandernakaradachase"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </section>
+    <script>
+      let audio2 = document.querySelector("#music-selected");
+      let musicFloat = document.querySelector(".music-float-bar");
+      let musicImg = document.querySelector(".music-img");
+      let musicId = document.querySelector("#music");
+      let footerI = document.querySelectorAll(".footer-icon");
+      let footerA = document.querySelectorAll("#audio-footer");
+
+      let bgImage = [
+        "https://images.unsplash.com/photo-1563089145-599997674d42?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+        "https://images.unsplash.com/photo-1557264337-e8a93017fe92?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
+        "https://images.unsplash.com/photo-1572414451217-ed2e028748e2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+      ];
+      let randomN = Math.floor(Math.random() * bgImage.length);
+      let bgI = bgImage[randomN];
+
+      footerI.forEach((footerIc, index) => {
+        footerIc.addEventListener("click", () => {
+          let duTon = footerA[index].duration;
+          let cuTime = footerA[index].currentTime;
+          let name = footerIc.getAttribute("data-music-name");
+          let userN = "<%-userD._id%>"
+          window.location = `/music/${name}?user=${userN}currentTime=${cuTime}&duration=${duTon}&isPaused=${false}`;
+        });
+      });
+
+      window.addEventListener("load", () => {
+        musicId.style.background = `url(${bgI})`;
+        musicId.style.backgroundRepeat = "no-repeat";
+        musicId.style.backgroundSize = "cover";
+
+        let c = "<%-currentT%>";
+        let d = c.split(":")[1];
+        let isP = "<%-isPaused%>";
+        if (isP == "true") {
+          musicImg.children[0].style.borderRadius = "0%";
+        }
+        if (d >= 00) {
+          audio2.currentTime = d;
+          audio2.play();
+          musicId.style.background =
+            "url(<%-musicData.imageUrl%>) no-repeat center";
+
+          musicId.style.backgroundSize = "cover";
+
+          musicImg.children[0].style.borderRadius = "50%";
+          musicImg.children[0].style.width = "80%";
+          musicImg.children[0].style.height = "80%";
+          const isPlaying = () => {
+            return audio2.paused;
+          };
+          let ret = isPlaying();
+
+          if (ret) {
+            musicImg.children[0].classList.remove("animate");
+          } else {
+            musicImg.children[0].classList.add("animate");
+          }
+        }
+        timeUpdate();
+      });
+
+      function timeUpdate() {
+        audio2.addEventListener("timeupdate", () => {
+          let curD = audio2.currentTime;
+          let audioD = audio2.duration;
+          const td = (curD / audioD) * 100;
+
+          musicFloat.style.width = td + "%";
+          if (curD == audioD) {
+            audio2.currentTime = 0;
+          }
+        });
+      }
+      function handlePause() {
+        musicImg.children[0].classList.remove("animate");
+        audio2.pause();
+      }
+      function handleReset() {
+        audio2.pause();
+        musicId.style.background = `url(${bgI})`;
+        musicId.style.backgroundRepeat = "no-repeat";
+        musicId.style.backgroundSize = "cover";
+        musicImg.children[0].classList.remove("animate");
+        musicImg.children[0].style.borderRadius = "1%";
+        musicImg.children[0].style.width = "100%";
+        musicImg.children[0].style.height = "100%";
+        audio2.currentTime = 0;
+      }
+
+      function handlePlay() {
+        musicId.style.background =
+          "url(<%-musicData.imageUrl%>) no-repeat center";
+
+        musicId.style.backgroundSize = "cover";
+        musicImg.children[0].style.borderRadius = "50%";
+        musicImg.children[0].style.width = "80%";
+        musicImg.children[0].style.height = "80%";
+        musicImg.children[0].classList.add("animate");
+        audio2.play();
+        timeUpdate();
+      }
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,164 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/header.ejs") -%>
+
+  <body>
+    <section id="profile">
+      <div class="profile-container">
+        <div class="profile-contents">
+          <div class="profile-img">
+            <img src="<%=userProfile.profileUrl%>" alt="err" />
+            <div class="upload-profile">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profile-icon">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+
+              <div class="upload-text">
+                <h4>Upload New Image</h4>
+                <form id="image-upload">
+                  <label for="image">+</label>
+                  <span class="image-name"> </span>
+                  <input type="file" name="profile" id="image" />
+                  <button type="submit" id="submit-btn">Upload</button>
+                </form>
+                <progress id="progress" value="0" max="100"></progress>
+              </div>
+            </div>
+          </div>
+          <div class="profile-details">
+            <form action="/update/<%=userProfile.name%>" method="POST">
+              <input type="text" name="name" placeholder="Name" readonly value="<%=userProfile.name%>" />
+              <input type="email" name="emailid" placeholder="Email Id" value="<%=userProfile.email%>" />
+              <input type="text" name="fb" placeholder="Facebook Id" value="<%=userProfile.fbId%>" />
+              <input type="text" name="insta" placeholder="Instagram Id" value="<%=userProfile.instaId%>" />
+              <input type="text" name="twitter" placeholder="Twitter Id" value="<%=userProfile.twitterId%>" />
+              <button>Update</button>
+              <button>
+                <a href="/?user=<%=userProfile._id%>&auth=<%=true%>" style="text-decoration: none; color: white">Go
+                  Back</a>
+              </button>
+            </form>
+          </div>
+          <div class="profile-fav">
+            <h2>Favourties</h2>
+            <div class="profile-fav-container">
+              <%userProfile.favSong.map((song)=>{ %>
+                <div class="profile-fav-content">
+                  <div class="profile-fav-img">
+                    <img src="<%=song.songImage%>" alt="" />
+                  </div>
+                  <div class="profile-fav-name">
+                    <p>
+                      <%=song.songName%>
+                    </p>
+                  </div>
+                </div>
+                <% }) %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.4.2/firebase.js"
+      integrity="sha512-+GODoxOaCt8UNX2V0hJTWQ25/KB2iykHG5CCq50y7Q3FR0/7BDPngKSC2c1xMMqiDFQog1nEjeLORQxNMolUDw=="
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script>
+      let firebaseConfig = {
+        apiKey: "AIzaSyB7ymEPYckyIHXqq9C-FTtJTpDfWGbC0QE",
+        authDomain: "musicprofile-6572f.firebaseapp.com",
+        projectId: "musicprofile-6572f",
+        storageBucket: "musicprofile-6572f.appspot.com",
+        messagingSenderId: "533340053132",
+        appId: "1:533340053132:web:110b6de2d53018abd3a5a9",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      let storage = firebase.storage();
+
+      let form = document.querySelector("#image-upload");
+      let submitBtn = document.querySelector("#submit-btn");
+      let input = document.querySelector("#image");
+      let progressBar = document.querySelector("#progress");
+      let addIcon = document.querySelector(".profile-icon");
+      let profile = document.querySelector(".upload-profile");
+
+      addIcon.addEventListener("click", (e) => {
+        profile.classList.toggle("clip-path-active");
+        const contains = profile.classList.contains("clip-path-active");
+        console.log(contains);
+        if (!contains) {
+          profile.style.clipPath = "circle(15% at 95% 8%)";
+          addIcon.style.transform = "rotate(90deg)";
+        } else {
+          profile.style.clipPath = "circle(100% at 50% 50%)";
+          addIcon.style.transform = "rotate(-90deg)";
+        }
+      });
+      let count = 0;
+      input.addEventListener("change", (e) => {
+        let image = e.target.files[0];
+        let images = [];
+
+        let types = ["image/png", "image/jpeg"];
+        let fileType = types.includes(image.type);
+        count++;
+        console.log(count);
+        if (fileType) {
+          document.querySelector(".image-name").innerHTML = image.name;
+
+          images.push(image);
+          console.log(images);
+          if (count === 2) {
+            window.location.reload();
+          }
+          submitBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            var storageRef = storage.ref(images[0].name);
+            let uploadFile = storageRef.put(images[0]);
+
+            uploadFile.on(
+              "state_changed",
+              (snapshot) => {
+                let progress =
+                  (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                progressBar.setAttribute("value", progress);
+                progressBar.style.opacity = "1";
+                if (progress == 100) {
+                  progressBar.style.opacity = "0";
+                }
+              },
+              (error) => {
+                console.log(error);
+              },
+              () => {
+                uploadFile.snapshot.ref.getDownloadURL().then((url) => {
+                  let url2 = {
+                    url: url,
+                  };
+                  if (url) {
+                    let user = "<%-userProfile._id%>";
+                    axios.post("/upload/" + user, url2).then((res) => {
+                      if (res.data) {
+                        window.location.reload()
+                      }
+                    });
+                  }
+                });
+              }
+            );
+          });
+        } else {
+          document.querySelector(".image-name").innerHTML =
+            "format not supported";
+          input.value = "";
+        }
+      });
+    </script>
+  </body>
+
+</html>

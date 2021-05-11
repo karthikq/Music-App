@@ -1,0 +1,308 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/header.ejs") -%>
+
+  <body>
+    <section id="first-page">
+      <div class="first-container">
+        <header class="first-header">
+          <h3>MusicApp</h3>
+          <%if(typeof user !="undefined" ){%>
+            <button><a href="/logout">logout</a></button>
+            <%}else{%>
+              <button><a href="/user/login">login</a></button>
+              <%}%>
+        </header>
+        <div class="first-contents">
+          <div class="first-left-contents">
+            <%if(typeof user !="undefined" ){%>
+              <div class="first-profile">
+                <img src="<%=userD.profileUrl%>" alt="error" />
+                <div class="first-profile-text">
+                  <p><a href="/profile/?user=<%=userD._id%>">profile</a></p>
+                </div>
+              </div>
+              <%}else{%>
+                <div class="first-profile">
+                  <img
+                    src="https://images.pexels.com/photos/4040433/pexels-photo-4040433.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                    alt="" />
+                  <div class="first-profile-text">
+                    <p><a href="/user/login">login</a></p>
+                  </div>
+                </div>
+                <%}%>
+                  <div class="first-left-img"></div>
+          </div>
+          <div class="first-center">
+            <div class="center-contents">
+              <div class="center-nav">
+                <ul>
+                  <li data-filter="all">Now Playing</li>
+                  <li data-filter=".most ">Most Played</li>
+
+                  <li data-filter=".top">Top Charts</li>
+                  <li data-filter=".fav">favourites</li>
+                </ul>
+              </div>
+              <div class="center">
+                <% musicArray.forEach((music,index)=>{%>
+                  <div class="mix songs-div <%=music.rating%> <%=music.favRating%>">
+                    <div class="songs-contents">
+                      <div class="song-img">
+                        <img src="<%=music.imageUrl%>" alt="error" />
+                      </div>
+                      <div class="song-player">
+                        <i class="fas fa-play play-icon"></i>
+                        <audio id="audio" data-song-name="<%=music.name%>" data-song-image="<%=music.imageUrl%>">
+                          <source src="<%=music.audio%>" />
+                        </audio>
+                      </div>
+                      <div class="song-name">
+                        <p>
+                          <%=music.name%>
+                        </p>
+                      </div>
+                      <div class="song-float-bar">
+                        <span id="initial-duration">0:00</span>
+
+                        <div class="song-float">
+                          <div class="song-float-duration"></div>
+                        </div>
+                        <span id="final-duration">1:00</span>
+                      </div>
+                      <div class="song-fav">
+                        <% if(typeof user !="undefined" ){ %>
+                          <% let val=userD.favSong.find((ele)=>ele.songName === music.name) %>
+                            <%if(val){%>
+                              <form action="/unfav/<%=userD._id%>" method="post" id="form-2">
+                                <input type="hidden" name="name" value="<%=music.name%>" />
+                                <i class="fas fa-heart fav-icon-2" title="Double click to remove"></i>
+                              </form>
+                              <%}else{%>
+                                <form action="/fav/<%=userD._id%>" method="POST" id="form" data-id="<%=music.name%>">
+                                  <input type="hidden" name="name" value="<%=music.name%>" />
+                                  <i class="far fa-heart fav-icon"> </i>
+                                </form>
+                                <%}%>
+                                  <%}else{%>
+                                    <a href="/user/login" style="text-decoration: none; color: white">
+                                      <i class="far fa-heart"> </i>
+                                    </a>
+                                    <%}%>
+                      </div>
+                      <div class="audio-controls">
+                        <label>
+                          <i class="fas fa-volume-down" id="volume-icon"></i>
+                        </label>
+                        <input type="range" step="0.01" min="0" max="1" value="0.5" id="volume-slider" />
+                      </div>
+                    </div>
+                  </div>
+                  <%}) %>
+              </div>
+            </div>
+          </div>
+
+          <div class="first-right-contents">
+            <div class="right-img-box"></div>
+          </div>
+        </div>
+        <footer>
+          <div class="playlist">
+            <div class="footer-img">
+              <img
+                src="https://images.pexels.com/photos/1306791/pexels-photo-1306791.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+                alt="" />
+              <div class="footer-text">
+                <h3 class="footer-text-main"></h3>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"
+      integrity="sha512-nKZDK+ztK6Ug+2B6DZx+QtgeyAmo9YThZob8O3xgjqhw2IVQdAITFasl/jqbyDwclMkLXFOZRiytnUrXk/PM6A=="
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+
+    <script>
+      var audio = document.querySelectorAll("#audio");
+      let icons = document.querySelectorAll(".play-icon");
+      let pauseIcon = document.querySelector(".pause-icon");
+      let slider = document.querySelectorAll("#volume-slider");
+      let volumeIcon = document.querySelectorAll("#volume-icon");
+      let float = document.querySelectorAll(".song-float-duration");
+      let songFav = document.querySelector(".song-fav");
+      let favIcon = document.querySelectorAll(".fav-icon");
+      let favIcon2 = document.querySelectorAll(".fav-icon-2");
+      let currentTime = document.querySelectorAll("#initial-duration");
+      let finalTime = document.querySelectorAll("#final-duration");
+      let footer = document.querySelector(".footer-img");
+      let footerPlay = document.querySelector(".playlist");
+      let form = document.querySelectorAll("#form");
+      let form2 = document.querySelectorAll("#form-2");
+      let songN = document.querySelectorAll(".song-name p");
+
+      let firstBg = document.querySelector("#first-page");
+      let leftBgImg = document.querySelector(".first-left-img");
+
+      function nextImage() {
+        let bgImage = [
+          "https://images.unsplash.com/photo-1513829596324-4bb2800c5efb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80",
+          "https://images.unsplash.com/photo-1501612780327-45045538702b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          "https://images.unsplash.com/photo-1488036106564-87ecb155bb15?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80",
+          "https://images.unsplash.com/photo-1470229538611-16ba8c7ffbd7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+          "https://images.unsplash.com/photo-1550697797-f01b4e83a1be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1355&q=80",
+          "https://images.unsplash.com/photo-1483000805330-4eaf0a0d82da?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+        ];
+
+        let randomN = Math.floor(Math.random() * bgImage.length);
+        let bgI = bgImage[randomN];
+        leftBgImg.style.background = `url(${bgI})`;
+        leftBgImg.style.backgroundRepeat = "no-repeat";
+        leftBgImg.style.backgroundSize = "cover";
+      }
+      setInterval(() => {
+        nextImage();
+      }, 4000);
+
+      songN.forEach((song, index) => {
+        song.addEventListener("click", () => {
+          var currentT = Math.floor(audio[index].currentTime);
+          if (currentT < 10) {
+            var currentT = 0 + ":" + 0 + currentT;
+          }
+          let d1 = Math.floor(audio[index].duration / 60);
+          let d2 = Math.floor(audio[index].duration % 60);
+
+          let duration = d1 + ":" + d2;
+
+          const isPlaying = () => {
+            return audio[index].paused;
+          };
+          let ret = isPlaying();
+          let userN = "<%-userD._id%>"
+
+
+          window.location = `/music/${song.innerHTML.replace(/\s/g, "")}?user=${userN}&currentTime=${currentT}&duration=${duration}&isPaused=${ret}`;
+        });
+      });
+
+      audio.controls = false;
+
+      let containerEl = document.querySelector(".center");
+      let mixer = mixitup(containerEl, {
+        controls: {
+          toggleLogic: "and",
+        },
+      });
+      favIcon2.forEach((favIcon, index) => {
+        favIcon.addEventListener("dblclick", () => {
+          form2[index].submit();
+        });
+      });
+
+      window.addEventListener("load", () => {
+        audio.forEach((item, index) => {
+          const dur1 = Math.floor(item.duration / 60);
+          const dur2 = Math.floor(item.duration % 60);
+          const totalD = dur1 + ":" + dur2;
+
+          if (totalD) finalTime[index].textContent = totalD;
+
+          item.addEventListener("timeupdate", () => {
+            const dur3 = Math.floor(item.currentTime / 60);
+            var dur4 = Math.floor(item.currentTime % 60);
+
+            if (dur4 < 10) {
+              var dur4 = "0" + dur4;
+            }
+            var current = dur3 + ":" + dur4;
+            if (current) {
+              currentTime[index].textContent = current;
+            }
+
+            let duration = item.currentTime / item.duration;
+            float[index].style.width = duration * 100 + "%";
+          });
+        });
+      });
+      favIcon.forEach((icons, index) => {
+        icons.addEventListener("click", () => {
+          form[index].submit();
+        });
+      });
+
+
+
+
+
+      icons.forEach((icon, index) => {
+        icon.addEventListener("click", (e) => {
+          const contains = icon.classList.contains("pause-icon");
+
+          audio[index].play();
+          audio[index].addEventListener("play", (e) => {
+            for (var i = 0; i < 16; i++) {
+              if (audio[i] != e.target) {
+                audio[i].pause();
+                icons[i].setAttribute("class", "fas fa-play play-icon");
+              }
+            }
+          });
+
+          if (!contains) {
+            icon.setAttribute("class", "fas fa-pause pause-icon");
+            gsap.from(".playlist", {
+              opacity: 0,
+              duration: 2,
+              ease: "ease",
+              y: "  20%",
+            });
+
+            let musicUrl = icon.parentElement.children[1].children[0].getAttribute(
+              "src"
+            );
+
+            let songName = icon.parentElement.children[1].getAttribute(
+              "data-song-name"
+            );
+            let imageUrl = icon.parentElement.children[1].getAttribute(
+              "data-song-image"
+            );
+            footer.children[0].setAttribute("src", imageUrl);
+            footer.children[1].children[0].innerHTML = songName;
+          } else {
+            audio[index].pause();
+            icon.setAttribute("class", "fas fa-play play-icon");
+          }
+        });
+      });
+
+      slider.forEach((data, index) => {
+        data.addEventListener("click", () => {
+          const value = data.value;
+
+          audio[index].volume = value;
+
+          let perValue = value * 100;
+          if (perValue <= 20) {
+            volumeIcon[index].setAttribute("class", "fas fa-volume-off");
+          } else if (perValue > 20 && perValue <= 75) {
+            volumeIcon[index].setAttribute("class", "fas fa-volume-down");
+          } else if (perValue > 75) {
+            volumeIcon[index].setAttribute("class", "fas fa-volume-up");
+          }
+          let color = `linear-gradient(90deg, rgba(34, 34, 34, 0.829) ${perValue}%, rgba(250, 250, 250, 0.11) ${perValue}%)`;
+
+          data.style.background = color;
+        });
+      });
+    </script>
+  </body>
+
+</html>
