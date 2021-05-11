@@ -10,7 +10,8 @@ const passportFb = (passport) => {
       {
         clientID: process.env.FB_CLIENT_ID,
         clientSecret: process.env.FB_CLIENT_SECRET,
-        callbackURL: "http://localhost:3000/auth/facebook/main",
+        callbackURL:
+          "https://guarded-falls-48968.herokuapp.com/auth/facebook/main",
         profileFields: ["id", "displayName", "photos", "email"],
       },
       async function (accessToken, refreshToken, profile, done) {

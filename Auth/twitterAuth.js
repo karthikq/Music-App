@@ -9,7 +9,8 @@ const passportGit = (passport) => {
       {
         clientID: process.env.GH_CLIENT_ID,
         clientSecret: process.env.GH_CLIENT_SECRECT,
-        callbackURL: "http://localhost:3000/auth/github/main",
+        callbackURL:
+          "https://guarded-falls-48968.herokuapp.com/auth/github/main",
       },
       async function (accessToken, refreshToken, profile, done) {
         try {

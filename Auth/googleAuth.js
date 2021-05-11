@@ -10,7 +10,8 @@ const passportAuth = async (passport) => {
       {
         clientID: process.env.GL_CLIENT_ID,
         clientSecret: process.env.GL_CLIENT_SECRECT,
-        callbackURL: "http://localhost:3000/auth/google/main",
+        callbackURL:
+          "https://guarded-falls-48968.herokuapp.com/auth/google/main",
       },
       async (accessToken, refreshToken, profile, done) => {
         try {
