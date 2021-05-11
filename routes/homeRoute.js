@@ -8,7 +8,7 @@ const User = require("../models/Users");
 const passport = require("passport");
 
 router.get("/", async (req, res) => {
-  if (req.query) {
+  if (req.query.user && req.isAuthenticated()) {
     try {
       const data = await Song.find({});
       const userD = await User.findOne({ _id: req.query.user });
@@ -21,12 +21,13 @@ router.get("/", async (req, res) => {
       console.log(error);
     }
   } else {
-    try {
-      const data = await Song.find({});
-      res.render("home", { musicArray: data });
-    } catch (error) {
-      console.log(error);
-    }
+    res.redirect("/user/login");
+    // try {
+    //   const data = await Song.find({});
+    //   res.render("home", { musicArray: data });
+    // } catch (error) {
+    //   console.log(error);
+    // }
   }
 });
 

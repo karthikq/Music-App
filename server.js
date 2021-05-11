@@ -7,7 +7,8 @@ const port = process.env.PORT || 3000;
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const passport = require("passport");
-const MongoStore = require("connect-mongo");
+const mongoose = require("mongoose");
+const MongoStore = require("connect-mongo")(session);
 require("dotenv").config();
 
 const app = express();
@@ -22,8 +23,8 @@ app.use(
   session({
     secret: "keyboard cat",
     resave: false,
-    saveUninitialized: true,
-    store: MongoStore.create({ mongoUrl: process.env.MONGO_URL }),
+    saveUninitialized: false,
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
   })
 );
 
