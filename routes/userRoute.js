@@ -16,7 +16,7 @@ router.get("/login", (req, res) => {
 router.post("/login", async (req, res, next) => {
   const { email, password } = req.body;
 
-  passport.authenticate("local", (err, user, info) => {
+  passport.authenticate("local", (err, user) => {
     if (err) {
       return next(err);
     }
