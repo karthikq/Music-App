@@ -6,10 +6,34 @@ const User = require("../models/Users");
 const saltRounds = 10;
 const { body, validationResult, check } = require("express-validator");
 const bcrypt = require("bcrypt");
+const passport = require("passport");
+require("../Auth/localAuth")(passport);
 
 router.get("/login", (req, res) => {
   res.render("login");
 });
+
+router.post("/login", async (req, res, next) => {
+  const { email, password } = req.body;
+  passport.authenticate("local", (err, user, info) => {
+    if (err) {
+      return next(err);
+    }
+    let errorArray = [];
+    if (!user) {
+      errorArray.push({ msg: "Credentials are not valid" });
+      return res.render("login", { errorArray: errorArray });
+    }
+
+    req.logIn(user, function (err) {
+      if (err) {
+        console.log("err");
+      }
+      return res.redirect("/?user=" + user._id + "&auth=" + true);
+    });
+  })(req, res, next);
+});
+
 router.get("/register", (req, res) => {
   res.render("register");
 });

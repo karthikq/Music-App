@@ -11,30 +11,31 @@
 
           <div class="login-form">
             <h2>Sign in</h2>
-            <form action="">
-              <input type="text" name="" placeholder="Email">
-              <input type="text" name="" placeholder="Password">
-              <button> <span>login</span>
-                <div class="btn-clip"><span>it's free</span></div>
-              </button>
-            </form>
-            <div class="register">
-              <p>If you dont have an account <a href="/user/register">Register</a></p>
-            </div>
-            <div class="login-social">
-              <div class="login-social">
-                <a href="/auth/facebook">
-                  <img src="../images/facebook.png" class="fab" alt="" /></a>
-
-                <a href="/auth/google">
-                  <img src="../images/google_plus_red.png" class="fab" alt="" />
-                </a>
-                <a href="/auth/github">
-                  <img src="../images/twitter.png" class="fab" alt="" />
-                </a>
-
+            <%- include("./partials/messages.ejs") -%>
+              <form action="/user/login" method="POST">
+                <input type="email" name="email" placeholder="Email">
+                <input type="password" name="password" placeholder="Password">
+                <button type="submit"> <span>login</span>
+                  <div class="btn-clip"><span>it's free</span></div>
+                </button>
+              </form>
+              <div class="register">
+                <p>If you dont have an account <a href="/user/register">Register</a></p>
               </div>
-            </div>
+              <div class="login-social">
+                <div class="login-social">
+                  <a href="/auth/facebook">
+                    <img src="../images/facebook.png" class="fab" alt="" /></a>
+
+                  <a href="/auth/google">
+                    <img src="../images/google_plus_red.png" class="fab" alt="" />
+                  </a>
+                  <a href="/auth/github">
+                    <img src="../images/twitter.png" class="fab" alt="" />
+                  </a>
+
+                </div>
+              </div>
           </div>
         </div>
       </div>
