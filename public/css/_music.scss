@@ -30,7 +30,6 @@
 }
 
 .music-main {
-  width: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -123,6 +122,7 @@
     height: 0.3rem;
     position: relative;
     background-color: rgb(67, 17, 77);
+
     .music-float-bar {
       position: absolute;
       top: 0;
@@ -400,6 +400,130 @@
       width: 250px;
       height: 250px;
       margin: 0 auto;
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  .music-footer-contents {
+    width: 100%;
+    height: 85%;
+    display: flex;
+    justify-content: space-around;
+    .music-footer-1,
+    .music-footer-2,
+    .music-footer-3,
+    .music-footer-4 {
+      margin: 0 0.6rem;
+      width: 25%;
+      height: 100%;
+    }
+    .music-footer-1,
+    .music-footer-2,
+    .music-footer-3,
+    .music-footer-4 {
+      transform-style: preserve-3d;
+      transition: all 0.6s ease-in-out;
+      .flip,
+      .flop {
+        width: 100%;
+        height: 100%;
+        transition: all 0.6s ease-in-out;
+
+        position: relative;
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          content: "";
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(0deg, black, rgba(255, 255, 255, 0));
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .flip {
+        transform: translateZ(100px);
+        h2 {
+          margin: 0;
+          position: absolute;
+          top: 0.8rem;
+          left: 0.5rem;
+          color: rgba(255, 255, 255, 0.788);
+          font-size: 0.8rem;
+          font-family: "Raleway", sans-serif;
+          background: transparent;
+        }
+      }
+      .flop {
+        transform: rotateX(-90deg) translateZ(-100px);
+        background: transparent;
+        h2 {
+          margin: 0;
+          position: absolute;
+          top: 1.1rem;
+          left: 0.2rem;
+          color: rgba(255, 255, 255, 0.788);
+          font-size: 0.8rem;
+          font-family: "Raleway", sans-serif;
+          background: transparent;
+        }
+        .footer-player {
+          position: absolute;
+          z-index: 30;
+          top: 39.5%;
+
+          left: 0.3rem;
+          color: rgb(206, 206, 206);
+          cursor: pointer;
+          .footer-icon {
+            font-size: 0.6rem;
+          }
+        }
+      }
+      &:hover {
+        transform: rotateX(90deg);
+      }
+    }
+  }
+  .music-footer {
+    position: absolute;
+    width: 100%;
+    height: 10.5rem;
+    bottom: 0rem;
+    left: 0;
+  }
+  .music-footer-contents {
+    display: grid;
+    height: 100%;
+    margin-bottom: 0rem;
+
+    .music-footer-1 {
+      grid-column: 1/2;
+      grid-row: 1/2;
+      width: 100%;
+      height: 80px;
+    }
+    .music-footer-2 {
+      grid-column: 2/3;
+      width: 100%;
+      grid-row: 1/2;
+      height: 80px;
+    }
+    .music-footer-3 {
+      grid-column: 1/2;
+      width: 100%;
+      grid-row: 2/3;
+      height: 80px;
+    }
+    .music-footer-4 {
+      grid-column: 2/3;
+      width: 100%;
+      grid-row: 2/3;
+      height: 80px;
     }
   }
 }
