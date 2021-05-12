@@ -49,79 +49,84 @@
               </div>
               <div class="center">
                 <% musicArray.forEach((music,index)=>{%>
-                  <div class="mix songs-div <%=music.rating%> <%=music.favRating%>">
-                    <div class="songs-contents">
-                      <div class="song-img">
-                        <img src="<%=music.imageUrl%>" alt="error" />
-                      </div>
-                      <div class="song-player">
-                        <i class="fas fa-play play-icon"></i>
-                        <audio id="audio" data-song-name="<%=music.name%>" data-song-image="<%=music.imageUrl%>">
-                          <source src="<%=music.audio%>" />
-                        </audio>
-                      </div>
-                      <div class="song-name">
-                        <p>
-                          <%=music.name%>
-                        </p>
-                      </div>
-                      <div class="song-float-bar">
-                        <span id="initial-duration">0:00</span>
-
-                        <div class="song-float">
-                          <div class="song-float-duration"></div>
+                  <% let val=userD.favSong.find((ele)=>ele.songName === music.name) %>
+                    <div class="mix songs-div <%=music.rating%> <%=val && val.favRating%>">
+                      <div class="songs-contents">
+                        <div class="song-img">
+                          <img src="<%=music.imageUrl%>" alt="error" />
                         </div>
-                        <span id="final-duration">1:00</span>
-                      </div>
-                      <div class="song-fav">
-                        <% if(typeof user !="undefined" ){ %>
-                          <% let val=userD.favSong.find((ele)=>ele.songName === music.name) %>
-                            <%if(val){%>
-                              <form action="/unfav/<%=userD._id%>" method="post" id="form-2">
-                                <input type="hidden" name="name" value="<%=music.name%>" />
-                                <i class="fas fa-heart fav-icon-2" title="Double click to remove"></i>
-                              </form>
-                              <%}else{%>
-                                <form action="/fav/<%=userD._id%>" method="POST" id="form" data-id="<%=music.name%>">
+                        <div class="song-player">
+                          <i class="fas fa-play play-icon"></i>
+                          <audio id="audio" data-song-name="<%=music.name%>" data-song-image="<%=music.imageUrl%>">
+                            <source src="<%=music.audio%>" />
+                          </audio>
+                        </div>
+                        <div class="song-name">
+                          <p>
+                            <%=music.name%>
+                          </p>
+                        </div>
+                        <div class="song-float-bar">
+                          <span id="initial-duration">0:00</span>
+
+                          <div class="song-float">
+                            <div class="song-float-duration"></div>
+                          </div>
+                          <span id="final-duration">1:00</span>
+                        </div>
+                        <div class="song-fav">
+                          <% if(typeof user !="undefined" ){ %>
+                            <% let val=userD.favSong.find((ele)=>ele.songName === music.name) %>
+                              <%if(val){%>
+                                <form action="/unfav/<%=userD._id%>" method="post" id="form-2">
                                   <input type="hidden" name="name" value="<%=music.name%>" />
-                                  <i class="far fa-heart fav-icon"> </i>
+                                  <i class="fas fa-heart fav-icon-2" title="Double click to remove"></i>
                                 </form>
-                                <%}%>
-                                  <%}else{%>
-                                    <a href="/user/login" style="text-decoration: none; color: white">
-                                      <i class="far fa-heart"> </i>
-                                    </a>
-                                    <%}%>
-                      </div>
-                      <div class="audio-controls">
-                        <label>
-                          <i class="fas fa-volume-down" id="volume-icon"></i>
-                        </label>
-                        <input type="range" step="0.01" min="0" max="1" value="0.5" id="volume-slider" />
+                                <%}else{%>
+                                  <form action="/fav/<%=userD._id%>" method="POST" id="form" data-id="<%=music.name%>">
+                                    <input type="hidden" name="name" value="<%=music.name%>" />
+                                    <i class="far fa-heart fav-icon"> </i>
+                                  </form>
+                                  <%}%>
+                                    <%}else{%>
+                                      <a href="/user/login" style="text-decoration: none; color: white">
+                                        <i class="far fa-heart"> </i>
+                                      </a>
+                                      <%}%>
+                        </div>
+                        <div class="audio-controls">
+                          <label>
+                            <i class="fas fa-volume-down" id="volume-icon"></i>
+                          </label>
+                          <input type="range" step="0.01" min="0" max="1" value="0.5" id="volume-slider" />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <%}) %>
+                    <%}) %>
               </div>
             </div>
           </div>
 
-          <div class="first-right-contents">
-            <div class="right-img-box"></div>
-          </div>
+          <!-- <div class="first-right-contents"> -->
+          <!-- <div class="right-img-box"></div> -->
+          <!-- <h2>Today's Users</h2>
+            <div class="users-list"> -->
+
+          <!-- </div> -->
         </div>
-        <footer>
-          <div class="playlist">
-            <div class="footer-img">
-              <img
-                src="https://images.pexels.com/photos/1306791/pexels-photo-1306791.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
-                alt="" />
-              <div class="footer-text">
-                <h3 class="footer-text-main"></h3>
-              </div>
+      </div>
+      <footer>
+        <div class="playlist">
+          <div class="footer-img">
+            <img
+              src="https://images.pexels.com/photos/1306791/pexels-photo-1306791.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+              alt="" />
+            <div class="footer-text">
+              <h3 class="footer-text-main"></h3>
             </div>
           </div>
-        </footer>
+        </div>
+      </footer>
       </div>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"
@@ -153,11 +158,11 @@
       function nextImage() {
         let bgImage = [
           "https://images.unsplash.com/photo-1513829596324-4bb2800c5efb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80",
-          "https://images.unsplash.com/photo-1501612780327-45045538702b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-          "https://images.unsplash.com/photo-1488036106564-87ecb155bb15?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80",
-          "https://images.unsplash.com/photo-1470229538611-16ba8c7ffbd7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
-          "https://images.unsplash.com/photo-1550697797-f01b4e83a1be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1355&q=80",
-          "https://images.unsplash.com/photo-1483000805330-4eaf0a0d82da?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+          "https://images.pexels.com/photos/1482476/pexels-photo-1482476.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+          "https://images.pexels.com/photos/1762578/pexels-photo-1762578.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+          "https://images.pexels.com/photos/3971983/pexels-photo-3971983.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+          "https://images.pexels.com/photos/2147029/pexels-photo-2147029.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+          "https://images.pexels.com/photos/1694900/pexels-photo-1694900.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
         ];
 
         let randomN = Math.floor(Math.random() * bgImage.length);

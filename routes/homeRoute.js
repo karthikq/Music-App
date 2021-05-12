@@ -106,6 +106,7 @@ router.post("/fav/:id", async (req, res) => {
                 songImage: song.image,
                 songName: song.name,
                 audio: song.audio,
+                favRating: "fav",
               },
             ],
           },

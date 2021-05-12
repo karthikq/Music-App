@@ -27,7 +27,13 @@ const UserSchema = new mongoose.Schema(
     date: String,
 
     favSong: [
-      { id: String, songImage: String, songName: String, audio: String },
+      {
+        id: String,
+        songImage: String,
+        songName: String,
+        audio: String,
+        favRating: String,
+      },
     ],
   },
   {

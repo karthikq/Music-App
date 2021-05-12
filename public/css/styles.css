@@ -1476,7 +1476,9 @@ footer .playlist .footer-img .footer-text h3 {
   margin-top: 5rem;
   width: 12rem;
   height: 37rem;
-  background: url("https://images.pexels.com/photos/1540406/pexels-photo-1540406.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260") no-repeat center;
-  background-size: cover;
+}
+
+.first-right-contents h2 {
+  color: white;
 }
 /*# sourceMappingURL=styles.css.map */
