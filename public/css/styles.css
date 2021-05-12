@@ -748,6 +748,7 @@
     grid-row: 1/2;
     width: 100%;
     height: 100px;
+    margin: 0;
   }
   .music-footer-contents .music-footer-2 {
     -ms-grid-column: 2;
@@ -758,6 +759,7 @@
     -ms-grid-row-span: 1;
     grid-row: 1/2;
     height: 100px;
+    margin: 0;
   }
   .music-footer-contents .music-footer-3 {
     -ms-grid-column: 1;
@@ -767,6 +769,7 @@
     -ms-grid-row: 2;
     -ms-grid-row-span: 1;
     grid-row: 2/3;
+    margin: 0;
     height: 100px;
   }
   .music-footer-contents .music-footer-4 {
@@ -778,6 +781,7 @@
     -ms-grid-row-span: 1;
     grid-row: 2/3;
     height: 100px;
+    margin: 0;
   }
 }
 
@@ -1472,6 +1476,7 @@ body {
   text-decoration: none;
   color: white;
   cursor: pointer;
+  padding: 0.4rem;
 }
 
 .first-header .header-btns {
@@ -2059,14 +2064,17 @@ footer .playlist .footer-img .footer-text h3 {
 }
 
 @media screen and (max-width: 500px) {
-  .first-header h3, .music-header h3 {
+  .first-header h3,
+  .music-header h3 {
     font-size: 1.2rem;
   }
-  .first-header button, .music-header button {
+  .first-header button,
+  .music-header button {
     padding: 0.4rem 0.8rem;
     font-size: 0.75rem;
   }
-  .first-header .header-btns .profile-btn button, .music-header .header-btns .profile-btn button {
+  .first-header .header-btns .profile-btn button,
+  .music-header .header-btns .profile-btn button {
     padding: 0.4rem 0.8rem;
     font-size: 0.75rem;
   }
