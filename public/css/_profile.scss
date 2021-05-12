@@ -253,6 +253,15 @@
       width: 10px;
       background-color: purple;
     }
+    .lottie-player-fav {
+      display: flex;
+      justify-content: center;
+      img {
+        width: 120px;
+        height: 110px;
+        object-fit: contain;
+      }
+    }
   }
 }
 @media screen and (max-width: 1120px) {

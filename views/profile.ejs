@@ -49,23 +49,32 @@
           <div class=" profile-fav">
             <h2>Favourties</h2>
             <div class="profile-fav-container">
-              <%userProfile.favSong.map((song)=>{ %>
-                <div class="profile-fav-content">
-                  <div class="profile-fav-img">
-                    <img src="<%=song.songImage%>" alt="" />
-                  </div>
-                  <div class="profile-fav-name">
-                    <p>
-                      <%=song.songName%>
-                    </p>
-                  </div>
+              <% if(userProfile.favSong.length==0){ %>
+                <div class="lottie-player-fav">
+                  <img src="../images/ufo.png" alt="err">
                 </div>
-                <% }) %>
+
+                <% }else{ %>
+                  <%userProfile.favSong.map((song)=>{ %>
+                    <div class="profile-fav-content">
+                      <div class="profile-fav-img">
+                        <img src="<%=song.songImage%>" alt="" />
+                      </div>
+                      <div class="profile-fav-name">
+                        <p>
+                          <%=song.songName%>
+                        </p>
+                      </div>
+                    </div>
+                    <% }) %>
+                      <% } %>
+
             </div>
           </div>
         </div>
       </div>
     </section>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.4.2/firebase.js"
       integrity="sha512-+GODoxOaCt8UNX2V0hJTWQ25/KB2iykHG5CCq50y7Q3FR0/7BDPngKSC2c1xMMqiDFQog1nEjeLORQxNMolUDw=="
@@ -114,12 +123,12 @@
         let types = ["image/png", "image/jpeg"];
         let fileType = types.includes(image.type);
         count++;
-        console.log(count);
+
         if (fileType) {
           document.querySelector(".image-name").innerHTML = image.name;
 
           images.push(image);
-          console.log(images);
+
           if (count === 2) {
             window.location.reload();
           }

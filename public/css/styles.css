@@ -1098,6 +1098,22 @@
   background-color: purple;
 }
 
+.profile-fav .profile-fav-container .lottie-player-fav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.profile-fav .profile-fav-container .lottie-player-fav img {
+  width: 120px;
+  height: 110px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 @media screen and (max-width: 1120px) {
   .profile-contents {
     padding-top: 0;
