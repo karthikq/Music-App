@@ -9,11 +9,15 @@
       <div class="first-container">
         <header class="first-header">
           <h3>MusicApp</h3>
-          <%if(typeof user !="undefined" ){%>
+          <div class="header-btns">
             <button><a href="/logout">logout</a></button>
-            <%}else{%>
-              <button><a href="/user/login">login</a></button>
-              <%}%>
+            <div class="profile-btn">
+              <button style="background: url(<%=userD.profileUrl%>)no-repeat center; background-size: cover;"> <a
+                  href="/profile/?user=<%=userD._id%>">profile</a> </button>
+            </div>
+          </div>
+
+
         </header>
         <div class="first-contents">
           <div class="first-left-contents">
