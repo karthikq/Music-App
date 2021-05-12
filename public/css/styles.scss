@@ -593,7 +593,8 @@ footer {
   }
 }
 @media screen and (max-width: 500px) {
-  .first-header {
+  
+  .first-header,.music-header {
     h3 {
       font-size: 1.2rem;
     }

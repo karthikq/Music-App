@@ -70,15 +70,17 @@ router.get("/profile", async (req, res) => {
 
 router.post("/update/:id", async (req, res) => {
   let updateUser = req.params.id;
+  console.log(updateUser);
   try {
     const update = await User.updateOne(
-      { name: updateUser },
+      { _id: updateUser },
       {
         fbId: req.body.fb,
         instaId: req.body.insta,
         twitterId: req.body.twitter,
       }
     );
+    res.redirect(`/profile/?user=${updateUser}`);
   } catch (error) {}
 });
 

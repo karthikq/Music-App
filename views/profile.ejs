@@ -30,7 +30,7 @@
             </div>
           </div>
           <div class="profile-details">
-            <form action="/update/<%=userProfile.name%>" method="POST">
+            <form action="/update/<%=userProfile._id%>" method="POST">
               <input type="text" name="name" placeholder="Name" readonly value="<%=userProfile.name%>" />
               <input type="email" name="emailid" placeholder="Email Id" value="<%=userProfile.email%>" />
               <input type="text" name="fb" placeholder="Facebook Id" value="<%=userProfile.fbId%>" />
@@ -66,6 +66,7 @@
         </div>
       </div>
     </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.4.2/firebase.js"
       integrity="sha512-+GODoxOaCt8UNX2V0hJTWQ25/KB2iykHG5CCq50y7Q3FR0/7BDPngKSC2c1xMMqiDFQog1nEjeLORQxNMolUDw=="
       crossorigin="anonymous"></script>
@@ -89,6 +90,9 @@
       let progressBar = document.querySelector("#progress");
       let addIcon = document.querySelector(".profile-icon");
       let profile = document.querySelector(".upload-profile");
+
+
+      gsap.from(".profile-contents", { opacity: 0, duration: 3 })
 
       addIcon.addEventListener("click", (e) => {
         profile.classList.toggle("clip-path-active");

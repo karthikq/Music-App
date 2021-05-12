@@ -287,7 +287,7 @@
 }
 
 .music-footer {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 10rem;
   bottom: 0;
@@ -592,7 +592,7 @@
 @media screen and (max-width: 500px) {
   .music-footer-contents {
     width: 100%;
-    height: 85%;
+    height: 90%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -664,8 +664,8 @@
   .music-footer-contents .music-footer-2 .flip,
   .music-footer-contents .music-footer-3 .flip,
   .music-footer-contents .music-footer-4 .flip {
-    -webkit-transform: translateZ(100px);
-            transform: translateZ(100px);
+    -webkit-transform: translateZ(50px);
+            transform: translateZ(50px);
   }
   .music-footer-contents .music-footer-1 .flip h2,
   .music-footer-contents .music-footer-2 .flip h2,
@@ -684,8 +684,8 @@
   .music-footer-contents .music-footer-2 .flop,
   .music-footer-contents .music-footer-3 .flop,
   .music-footer-contents .music-footer-4 .flop {
-    -webkit-transform: rotateX(-90deg) translateZ(-100px);
-            transform: rotateX(-90deg) translateZ(-100px);
+    -webkit-transform: rotateX(-90deg) translateZ(-50px);
+            transform: rotateX(-90deg) translateZ(-50px);
     background: transparent;
   }
   .music-footer-contents .music-footer-1 .flop h2,
@@ -736,7 +736,8 @@
     display: -ms-grid;
     display: grid;
     height: 100%;
-    margin-bottom: 0rem;
+    position: relative;
+    bottom: 1.2rem;
   }
   .music-footer-contents .music-footer-1 {
     -ms-grid-column: 1;
@@ -746,7 +747,7 @@
     -ms-grid-row-span: 1;
     grid-row: 1/2;
     width: 100%;
-    height: 80px;
+    height: 100px;
   }
   .music-footer-contents .music-footer-2 {
     -ms-grid-column: 2;
@@ -756,7 +757,7 @@
     -ms-grid-row: 1;
     -ms-grid-row-span: 1;
     grid-row: 1/2;
-    height: 80px;
+    height: 100px;
   }
   .music-footer-contents .music-footer-3 {
     -ms-grid-column: 1;
@@ -766,7 +767,7 @@
     -ms-grid-row: 2;
     -ms-grid-row-span: 1;
     grid-row: 2/3;
-    height: 80px;
+    height: 100px;
   }
   .music-footer-contents .music-footer-4 {
     -ms-grid-column: 2;
@@ -776,7 +777,7 @@
     -ms-grid-row: 2;
     -ms-grid-row-span: 1;
     grid-row: 2/3;
-    height: 80px;
+    height: 100px;
   }
 }
 
@@ -2058,14 +2059,14 @@ footer .playlist .footer-img .footer-text h3 {
 }
 
 @media screen and (max-width: 500px) {
-  .first-header h3 {
+  .first-header h3, .music-header h3 {
     font-size: 1.2rem;
   }
-  .first-header button {
+  .first-header button, .music-header button {
     padding: 0.4rem 0.8rem;
     font-size: 0.75rem;
   }
-  .first-header .header-btns .profile-btn button {
+  .first-header .header-btns .profile-btn button, .music-header .header-btns .profile-btn button {
     padding: 0.4rem 0.8rem;
     font-size: 0.75rem;
   }

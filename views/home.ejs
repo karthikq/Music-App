@@ -111,12 +111,7 @@
             </div>
           </div>
 
-          <!-- <div class="first-right-contents"> -->
-          <!-- <div class="right-img-box"></div> -->
-          <!-- <h2>Today's Users</h2>
-            <div class="users-list"> -->
 
-          <!-- </div> -->
         </div>
       </div>
       <footer>
@@ -159,6 +154,10 @@
       let firstBg = document.querySelector("#first-page");
       let leftBgImg = document.querySelector(".first-left-img");
 
+      gsap.from(".first-header", { opacity: 0, duration: 3 })
+      gsap.from(".center-nav ul li", { opacity: 0, duration: 1, stagger: 0.2 })
+      gsap.from(".mix", { opacity: 0, y: 30, duration: 1, delay: 1 })
+
       function nextImage() {
         let bgImage = [
           "https://images.unsplash.com/photo-1513829596324-4bb2800c5efb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80",
@@ -177,7 +176,7 @@
       }
       setInterval(() => {
         nextImage();
-      }, 4000);
+      }, 5000);
 
       songN.forEach((song, index) => {
         song.addEventListener("click", () => {
