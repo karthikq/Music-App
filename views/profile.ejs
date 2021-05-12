@@ -36,14 +36,17 @@
               <input type="text" name="fb" placeholder="Facebook Id" value="<%=userProfile.fbId%>" />
               <input type="text" name="insta" placeholder="Instagram Id" value="<%=userProfile.instaId%>" />
               <input type="text" name="twitter" placeholder="Twitter Id" value="<%=userProfile.twitterId%>" />
-              <button>Update</button>
-              <button>
-                <a href="/?user=<%=userProfile._id%>&auth=<%=true%>" style="text-decoration: none; color: white">Go
-                  Back</a>
-              </button>
+
+              <div class="profile-form-btn">
+                <button type="submit"> Update</button>
+                <button>
+                  <a href="/?user=<%=userProfile._id%>&auth=<%=true%>">Go
+                    Back</a>
+                </button>
+              </div>
             </form>
           </div>
-          <div class="profile-fav">
+          <div class=" profile-fav">
             <h2>Favourties</h2>
             <div class="profile-fav-container">
               <%userProfile.favSong.map((song)=>{ %>

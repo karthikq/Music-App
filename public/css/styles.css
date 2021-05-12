@@ -783,7 +783,7 @@
 /** @format */
 #profile {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background: #000000;
   /* fallback for old browsers */
   /* Chrome 10-25, Safari 5.1-6 */
@@ -798,6 +798,7 @@
 }
 
 .profile-contents {
+  padding-top: 10rem;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -828,7 +829,7 @@
   position: absolute;
   top: 0rem;
   right: 0rem;
-  background-color: #000000;
+  background-color: rgba(68, 1, 68, 0.918);
   margin-right: 0;
   width: 100%;
   min-height: 8.5rem;
@@ -863,7 +864,7 @@
   font-family: "Open Sans", sans-serif;
   margin: 0;
   letter-spacing: 0.5px;
-  font-weight: 400;
+  font-weight: 600;
   color: rgba(255, 255, 255, 0.856);
 }
 
@@ -984,7 +985,19 @@
   border: 2px solid rgba(176, 1, 230, 0.74);
 }
 
+.profile-details form .profile-form-btn {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-bottom: 1rem;
+}
+
 .profile-details form button {
+  margin-right: 0.6rem;
   font-family: "Raleway", sans-serif;
   font-size: 0.9rem;
   letter-spacing: 0.7px;
@@ -1000,6 +1013,16 @@
   position: relative;
   right: 1rem;
   cursor: pointer;
+}
+
+.profile-details form button:hover {
+  background-color: rgba(100, 3, 100, 0.315);
+  color: white;
+}
+
+.profile-details form button a {
+  color: rgba(255, 255, 255, 0.842);
+  text-decoration: none;
 }
 
 .profile-fav {
@@ -1068,6 +1091,65 @@
 .profile-fav .profile-fav-container::-webkit-scrollbar-thumb {
   width: 10px;
   background-color: purple;
+}
+
+@media screen and (max-width: 1120px) {
+  .profile-contents {
+    padding-top: 0;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .profile-img {
+    width: 100%;
+    height: 9rem;
+    margin-right: 0;
+    top: 3rem;
+    margin-bottom: 2rem;
+  }
+  .profile-details {
+    width: 100%;
+  }
+  .profile-details form {
+    margin-top: 3rem;
+    width: 90%;
+    margin: 3rem auto 0;
+  }
+  .profile-details form input {
+    padding: 0.7rem 0.9rem;
+  }
+  .profile-details form button {
+    color: pointer;
+    padding: 0.7rem 0.9rem;
+  }
+  .profile-fav {
+    width: 100%;
+    height: 8rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin-left: 0rem;
+    padding-bottom: 5rem;
+  }
+  .profile-fav h2 {
+    width: 100px;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 0.4rem;
+  }
 }
 
 /** @format */
@@ -1926,6 +2008,9 @@ footer .playlist .footer-img .footer-text h3 {
 }
 
 @media screen and (max-width: 780px) {
+  footer {
+    height: 10rem;
+  }
   .first-left-contents {
     bottom: 0.8rem;
     margin: 0 auto;
@@ -1993,12 +2078,15 @@ footer .playlist .footer-img .footer-text h3 {
   }
   footer .playlist .footer-img .footer-text h3 {
     font-size: 1.1rem;
+    margin-left: 0.5rem;
   }
   .first-left-img {
     display: none;
   }
   .first-center {
     top: 14%;
+    height: 80%;
+    padding-bottom: 0;
   }
   .first-center .center-contents .center-nav ul {
     padding: 0 0.2rem;
@@ -2010,6 +2098,8 @@ footer .playlist .footer-img .footer-text h3 {
   }
   .first-center .center-contents .center {
     overflow-x: hidden;
+    height: 85%;
+    padding-bottom: 0;
   }
   .first-center .center-contents .center .songs-div {
     width: 100%;

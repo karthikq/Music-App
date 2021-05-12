@@ -2,7 +2,7 @@
 
 #profile {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background: #000000; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to bottom,
@@ -20,6 +20,7 @@
   height: 100%;
 }
 .profile-contents {
+  padding-top: 10rem;
   height: 100%;
   display: flex;
   align-items: center;
@@ -40,7 +41,7 @@
     position: absolute;
     top: 0rem;
     right: 0rem;
-    background-color: #000000;
+    background-color: rgba(68, 1, 68, 0.918);
     margin-right: 0;
     width: 100%;
     min-height: 8.5rem;
@@ -67,7 +68,7 @@
         font-family: "Open Sans", sans-serif;
         margin: 0;
         letter-spacing: 0.5px;
-        font-weight: 400;
+        font-weight: 600;
         color: rgba(255, 255, 255, 0.856);
       }
     }
@@ -160,7 +161,14 @@
         border: 2px solid rgba(176, 1, 230, 0.74);
       }
     }
+    .profile-form-btn {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 1rem;
+    }
     button {
+      margin-right: 0.6rem;
       font-family: "Raleway", sans-serif;
       font-size: 0.9rem;
       letter-spacing: 0.7px;
@@ -175,6 +183,14 @@
       position: relative;
       right: 1rem;
       cursor: pointer;
+      &:hover {
+        background-color: rgba(100, 3, 100, 0.315);
+        color: white;
+      }
+      a {
+        color: rgba(255, 255, 255, 0.842);
+        text-decoration: none;
+      }
     }
   }
 }
@@ -236,6 +252,53 @@
     &::-webkit-scrollbar-thumb {
       width: 10px;
       background-color: purple;
+    }
+  }
+}
+@media screen and (max-width: 1120px) {
+  .profile-contents {
+    padding-top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .profile-img {
+    width: 100%;
+    height: 9rem;
+    margin-right: 0;
+    top: 3rem;
+    margin-bottom: 2rem;
+  }
+  .profile-details {
+    width: 100%;
+    form {
+      margin-top: 3rem;
+      width: 90%;
+      margin: 3rem auto 0;
+      input {
+        padding: 0.7rem 0.9rem;
+      }
+      button {
+        color: pointer;
+
+        padding: 0.7rem 0.9rem;
+      }
+    }
+  }
+  .profile-fav {
+    width: 100%;
+    height: 8rem;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0rem;
+    padding-bottom: 5rem;
+    h2 {
+      width: 100px;
+      margin: 0 auto;
+      text-align: center;
+      padding-bottom: 0.4rem;
     }
   }
 }

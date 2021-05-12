@@ -536,6 +536,9 @@ footer {
   }
 }
 @media screen and (max-width: 780px) {
+  footer {
+    height: 10rem;
+  }
   .first-left-contents {
     bottom: 0.8rem;
     margin: 0 auto;
@@ -618,6 +621,7 @@ footer {
         .footer-text {
           h3 {
             font-size: 1.1rem;
+            margin-left: 0.5rem;
           }
         }
       }
@@ -628,6 +632,8 @@ footer {
   }
   .first-center {
     top: 14%;
+    height: 80%;
+    padding-bottom: 0;
     .center-contents {
       .center-nav {
         ul {
@@ -642,6 +648,8 @@ footer {
       }
       .center {
         overflow-x: hidden;
+        height: 85%;
+        padding-bottom: 0;
         .songs-div {
           width: 100%;
 
