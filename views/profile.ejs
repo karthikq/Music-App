@@ -32,7 +32,7 @@
           <div class="profile-details">
             <form action="/update/<%=userProfile._id%>" method="POST">
               <input type="text" name="name" placeholder="Name" readonly value="<%=userProfile.name%>" />
-              <input type="email" name="emailid" placeholder="Email Id" value="<%=userProfile.email%>" />
+              <input type="email" name="emailid" placeholder="Email Id" value="<%=userProfile.email%>" readonly />
               <input type="text" name="fb" placeholder="Facebook Id" value="<%=userProfile.fbId%>" />
               <input type="text" name="insta" placeholder="Instagram Id" value="<%=userProfile.instaId%>" />
               <input type="text" name="twitter" placeholder="Twitter Id" value="<%=userProfile.twitterId%>" />
